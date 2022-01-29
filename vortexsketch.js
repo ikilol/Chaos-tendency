@@ -1,10 +1,11 @@
-
+let index = 0;
+let lastIndex = 0;
 let ele;
-function setup() {
 
-  ele = createAudio('Audio/mySound.wav');
-  ele.volume(0.1);
-  ele.loop();
-  ele.autoplay(true);
-  
-}
+const fs = require('fs');
+const dir = 'Audio';
+
+fs.readdir(dir, (err, files) => {
+  console.log(files.length);
+});
+
