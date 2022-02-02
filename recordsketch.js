@@ -1,12 +1,14 @@
 let mic, recorder, soundFile;
 let state = 0;
+let prova = 110;
+
 
 function setup() {
   let cnv = createCanvas(100, 100);
   cnv.mousePressed(canvasPressed);
   background(220);
   textAlign(CENTER, CENTER);
-
+  
   // create an audio in
   mic = new p5.AudioIn();
 
@@ -27,6 +29,7 @@ function setup() {
 }
 
 function canvasPressed() {
+
   // ensure audio is enabled
   userStartAudio();
 
@@ -57,3 +60,9 @@ function canvasPressed() {
     state++;
   }
 }
+
+function mousePressed(){
+  prova++;
+  console.log(prova);
+}
+
