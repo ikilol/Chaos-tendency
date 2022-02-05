@@ -1,14 +1,14 @@
+
 let mic, recorder, soundFile;
 let state = 0;
-let prova = 110;
-
+let listen;
 
 function setup() {
-  let cnv = createCanvas(100, 100);
+  let cnv = createCanvas(windowWidth - 20, 550);
   cnv.mousePressed(canvasPressed);
   background(220);
   textAlign(CENTER, CENTER);
-  
+
   // create an audio in
   mic = new p5.AudioIn();
 
@@ -29,7 +29,6 @@ function setup() {
 }
 
 function canvasPressed() {
-
   // ensure audio is enabled
   userStartAudio();
 
@@ -56,13 +55,55 @@ function canvasPressed() {
 
   else if (state === 2) {
     soundFile.play(); // play the result!
-    save(soundFile, 'SoundChaos.wav');
+    save(soundFile, 'mySound.wav');
     state++;
   }
 }
 
-function mousePressed(){
-  prova++;
-  console.log(prova);
+function draw(){
+
+  background(220);
+
+  textFont("Quantico");
+  textAlign(LEFT);
+  textSize(windowHeight/30);
+  noStroke();
+  fill(255);
+  let deletex = text("DELETE", windowHeight/25, windowHeight/1.4);
+
+  textFont("Quantico");
+  textAlign(LEFT);
+  textSize(windowHeight/30);
+  noStroke();
+  fill(255);
+  let listen = text("LISTEN", windowHeight/5, windowHeight/1.4);
+
+  textFont("Quantico");
+  textAlign(CENTER);
+  textSize(windowHeight/30);
+  noStroke();
+  fill(255);
+  let record = text("RECORD", windowWidth/2, windowHeight/1.4);
+
+  textFont("Quantico");
+  textAlign(CENTER);
+  textSize(windowHeight/30);
+  noStroke();
+  fill(255);
+  let play = text("STOP", windowWidth/2, windowHeight/1.4);
+
+  textFont("Quantico");
+  textAlign(CENTER);
+  textSize(windowHeight/30);
+  noStroke();
+  fill(255);
+  let send = text("SEND", windowWidth/0.9, windowHeight/1.4);
+
+
+}
+
+function changecolor(){
+  fill(0);
+  let listen = text("LISTEN", windowHeight/5, windowHeight/1.4);
 }
 
