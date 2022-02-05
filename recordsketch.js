@@ -2,13 +2,12 @@ let mic, recorder, soundFile;
 let state = 0;
 let prova = 110;
 
-
 function setup() {
   let cnv = createCanvas(100, 100);
   cnv.mousePressed(canvasPressed);
   background(220);
   textAlign(CENTER, CENTER);
-  
+
   // create an audio in
   mic = new p5.AudioIn();
 
@@ -25,44 +24,38 @@ function setup() {
   // playback & save the recording
   soundFile = new p5.SoundFile();
 
-  text('tap to record', width/2, height/2);
+  text("tap to record", width / 2, height / 2);
 }
 
 function canvasPressed() {
-
   // ensure audio is enabled
   userStartAudio();
 
   // make sure user enabled the mic
   if (state === 0 && mic.enabled) {
-
     // record to our p5.SoundFile
     recorder.record(soundFile);
 
-    background(255,0,0);
-    text('Recording!', width/2, height/2);
+    background(255, 0, 0);
+    text("Recording!", width / 2, height / 2);
     state++;
-  }
-  else if (state === 1) {
-    background(0,255,0);
+  } else if (state === 1) {
+    background(0, 255, 0);
 
     // stop recorder and
     // send result to soundFile
     recorder.stop();
 
-    text('Done! Tap to play and download', width/2, height/2, width - 20);
+    text("Done! Tap to play and download", width / 2, height / 2, width - 20);
     state++;
-  }
-
-  else if (state === 2) {
+  } else if (state === 2) {
     soundFile.play(); // play the result!
-    save(soundFile, 'SoundChaos.wav');
+    save(soundFile, "SoundChaos.wav");
     state++;
   }
 }
 
-function mousePressed(){
+function mousePressed() {
   prova++;
   console.log(prova);
 }
-

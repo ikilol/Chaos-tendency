@@ -10,6 +10,7 @@ const vectorAmount = 50;
 const adjustRange = 0;
 
 function setup() {
+  console.log(5);
   let cnv = createCanvas(500, 500);
 
   var num = int(random(1, 10));
