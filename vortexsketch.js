@@ -3,27 +3,20 @@ let ele;
 let particles = [];
 let num;
 const noiseScale = 0.01 / 2;
-let numeroaudio;
 
 function setup() {
-<<<<<<< Updated upstream
   createCanvas(displayWidth, displayHeight);
 
   num = getItem("counter");
   console.log(num);
 
   for (let i = 0; i < num; i++) {
-=======
-
-  createCanvas(displayWidth - 30, displayHeight- 135);
-  for(let i = 0; i < num; i ++) {
->>>>>>> Stashed changes
     particles.push(createVector(random(width), random(height)));
   }
 
   stroke(96, 225, 224);
 
-  for (let ic = 0; ic < num; ic++) {
+  for (let iA = 0; iA < num; iA++) {
     ele = createAudio("../Audio/SoundChaos%20(" + ic + ").wav");
     ele.volume(0.1);
     ele.loop();
