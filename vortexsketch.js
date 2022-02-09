@@ -7,15 +7,17 @@ const noiseScale = 0.01 / 2;
 function setup() {
   createCanvas(displayWidth, displayHeight);
 
+  //riprende il numero di file registrati nella cartella e li trasforma nella variabile num
   num = getItem("counter");
   console.log(num);
 
+  //crea numero di particelle equivalente al numero di file audio
   for (let i = 0; i < num; i++) {
     particles.push(createVector(random(width), random(height)));
   }
-
   stroke(96, 225, 224);
 
+  //riproduce il numero di audio equivalente alla variabile num
   for (let iA = 0; iA < num; iA++) {
     ele = createAudio("../Audio/SoundChaos%20(" + ic + ").wav");
     ele.volume(0.1);
@@ -28,6 +30,7 @@ function draw() {
   background(0, 10);
   stroke(96, 225, 224);
 
+  //funzione per flocking delle particelle
   flock();
 
   textFont("Quantico");
@@ -38,9 +41,9 @@ function draw() {
   text("THE SOUND\nOF CHAOS", 20, 50);
 }
 
-function mouseReleased() {
-  noiseSeed(millis());
-}
+//function mouseReleased() {
+//  noiseSeed(millis());
+//}
 
 function onScreen(v) {
   return v.x >= 0 && v.x <= width && v.y >= 0 && v.y <= height;
