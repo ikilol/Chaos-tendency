@@ -40,12 +40,11 @@ function draw() {
   textSize(30);
   noStroke();
   fill(255);
-  text(" //chaos tendecy", windowWidth-windowWidth+30, windowHeight-50);
+  text(" //chaos tendency", windowWidth - windowWidth + 30, windowHeight - 50);
 }
 
 function mouseReleased() {
-  noiseSeed(millis());  
-
+  noiseSeed(millis());
 }
 
 function onScreen(v) {
