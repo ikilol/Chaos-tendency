@@ -2,6 +2,7 @@
   "dependencies": {
     "express": "^4.17.2",
     "file-system": "^1.2.2",
+    "firebase": "^9.6.6",
     "fs": "^0.0.1-security",
     "socket.io": "^4.4.1"
   }

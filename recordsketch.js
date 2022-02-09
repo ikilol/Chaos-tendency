@@ -2,13 +2,12 @@ let mic, recorder, soundFile;
 let state = 0;
 let listen;
 
+
 let counter;
 
 function setup() {
-  let cnv = createCanvas(windowWidth - 20, 550);
+  let cnv = createCanvas(windowWidth, windowHeight);
   cnv.mousePressed(canvasPressed);
-  background(220);
-  textAlign(CENTER, CENTER);
 
   // counter per numero di audio registrati
   counter = getItem("counter");
@@ -45,11 +44,9 @@ function canvasPressed() {
     // registraa sul file salvato
     recorder.record(soundFile);
 
-    background(255, 0, 0);
     text("Recording...", width / 2, height / 2);
     state++;
   } else if (state === 1) {
-    background(0, 255, 0);
 
     // stop registrazione e salva file
     recorder.stop();
@@ -73,43 +70,48 @@ function canvasPressed() {
 function draw() {
   background(0);
 
-  textFont("Quantico");
+
+  textFont("Roboto mono");
+  textAlign(CENTER);
+  textSize(windowHeight / 35);
+  noStroke();
+  fill(255);
+  let sendg = text("//chaos tendency", windowWidth / 12, windowHeight/ 15);
+
+  textFont("Roboto mono");
   textAlign(LEFT);
-  textSize(windowHeight / 30);
+  textSize(windowHeight / 35);
   noStroke();
   fill(255);
-  let deletex = text("DELETE", windowHeight / 25, windowHeight / 1.4);
+  let deletex = text("delete", windowHeight / 25, windowHeight / 1.05);
 
-  textFont("Quantico");
+  textFont("Roboto mono");
   textAlign(LEFT);
-  textSize(windowHeight / 30);
+  textSize(windowHeight / 35);
   noStroke();
   fill(255);
-  let listen = text("LISTEN", windowHeight / 5, windowHeight / 1.4);
+  let listen = text("listen", windowHeight / 5, windowHeight / 1.05);
 
-  textFont("Quantico");
+  textFont("Roboto mono");
   textAlign(CENTER);
-  textSize(windowHeight / 30);
+  textSize(windowHeight / 35);
   noStroke();
   fill(255);
-  let record = text("RECORD", windowWidth / 2, windowHeight / 1.4);
+  let record = text("record", windowWidth / 2, windowHeight / 1.05);
 
-  textFont("Quantico");
+  textFont("Roboto mono");
   textAlign(CENTER);
-  textSize(windowHeight / 30);
+  textSize(windowHeight / 35);
   noStroke();
   fill(255);
-  let play = text("STOP", windowWidth / 2, windowHeight / 1.4);
+  let play = text("stop", windowWidth / 2, windowHeight / 1.05);
 
-  textFont("Quantico");
+  textFont("Roboto mono");
   textAlign(CENTER);
-  textSize(windowHeight / 30);
+  textSize(windowHeight / 35);
   noStroke();
   fill(255);
-  let send = text("SEND", windowWidth / 0.9, windowHeight / 1.4);
+  let send = text("send", windowWidth / 1.05, windowHeight / 1.05);
 }
 
-function changecolor() {
-  fill(0);
-  let listen = text("LISTEN", windowHeight / 5, windowHeight / 1.4);
-}
+
