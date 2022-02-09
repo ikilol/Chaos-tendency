@@ -6,12 +6,18 @@ const noiseScale = 0.01 / 2;
 let numeroaudio;
 
 function setup() {
+<<<<<<< Updated upstream
   createCanvas(displayWidth, displayHeight);
 
   num = getItem("counter");
   console.log(num);
 
   for (let i = 0; i < num; i++) {
+=======
+
+  createCanvas(displayWidth - 30, displayHeight- 135);
+  for(let i = 0; i < num; i ++) {
+>>>>>>> Stashed changes
     particles.push(createVector(random(width), random(height)));
   }
 
