@@ -71,7 +71,7 @@ function canvasPressed() {
 }
 
 function draw() {
-  background(220);
+  background(0);
 
   textFont("Quantico");
   textAlign(LEFT);

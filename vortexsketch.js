@@ -1,14 +1,17 @@
 let p;
 let ele;
 let particles = [];
+let arr = [];
 let num;
 const noiseScale = 0.01 / 2;
 
 function setup() {
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(windowWidth, windowHeight);
+
 
   num = getItem("counter");
-  console.log(num);
+  arr.push(num);
+  console.log(arr);
 
   for (let i = 0; i < num; i++) {
     particles.push(createVector(random(width), random(height)));
@@ -17,7 +20,7 @@ function setup() {
   stroke(96, 225, 224);
 
   for (let iA = 0; iA < num; iA++) {
-    ele = createAudio("../Audio/SoundChaos%20(" + ic + ").wav");
+    ele = createAudio("../Audio/SoundChaos%20(" + iA + ").wav");
     ele.volume(0.1);
     ele.loop();
     ele.autoplay(true);
@@ -46,8 +49,8 @@ function onScreen(v) {
   return v.x >= 0 && v.x <= width && v.y >= 0 && v.y <= height;
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+function refresh(){
+  window.top.location.reload(true)
 }
 
 function flock() {
