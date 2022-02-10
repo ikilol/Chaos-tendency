@@ -59,7 +59,7 @@ function draw() {
   background(0);
 
   if (state == 0) {
-    textFont("Roboto mono");
+    textFont("Apfel Grotezk");
     textAlign(CENTER);
     textSize(windowHeight / 35);
     noStroke();
@@ -70,7 +70,7 @@ function draw() {
   if (state == 1) {
     recorder.record(soundFile);
 
-    textFont("Roboto mono");
+    textFont("Apfel Grotezk");
     textAlign(CENTER);
     textSize(windowHeight / 35);
     noStroke();
@@ -81,7 +81,7 @@ function draw() {
 
   if (state == 2) {
     recorder.stop();
-    textFont("Roboto mono");
+    textFont("Apfel Grotezk");
     textAlign(CENTER);
     textSize(windowHeight / 35);
     noStroke();
@@ -111,12 +111,11 @@ function draw() {
     blob(size, width / 2, height / 2.3, k, t - i * step, noisiness);
   }
 
-  textFont("Roboto mono");
+  textFont("Apfel Grotezk");
   textAlign(CENTER);
   textSize(windowHeight / 35);
   noStroke();
   fill(255);
-  text("//chaos tendency", windowWidth / 12, windowHeight / 15);
 }
 
 function blob(size, xCenter, yCenter, k, t, noisiness) {
