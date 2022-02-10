@@ -9,10 +9,10 @@ let fft;
 
 let kMax; // maximal value for the parameter "k" of the blobs
 let step = 0.01; // difference in time between two consecutive blobs
-let n = 100; // total number of blobs
+let n = 110; // total number of blobs
 let radius = 0; // radius of the base circle
 let inter = 0.05; // difference of base radii of two consecutive blobs
-let maxNoise = 500; // maximal value for the parameter "noisiness" for the blobs
+let maxNoise = 700; // maximal value for the parameter "noisiness" for the blobs
 
 let counter;
 
@@ -140,7 +140,7 @@ function blob(size, xCenter, yCenter, k, t, noisiness) {
 */
     let r =
       size +
-      map(level, 0,1, 60, 700) +
+      map(level, 0,1, 60, 600) +
       (noise(k * r1, k * r2, t) * noisiness) / 2;
     //noise(k * r1, k * r2, t) * noisiness;
     //map(spectrum[theta], 0, 255, 200, 0);
