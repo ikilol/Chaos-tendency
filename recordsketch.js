@@ -44,10 +44,9 @@ function setup() {
   recorder.setInput(mic);
 
   soundFile = new p5.SoundFile();
-  
+
   //add amplitude
   amplitude = new p5.Amplitude();
-
 
   fft = new p5.FFT();
   fft.setInput(mic);
@@ -140,7 +139,7 @@ function blob(size, xCenter, yCenter, k, t, noisiness) {
 */
     let r =
       size +
-      map(level, 0,1, 60, 600) +
+      map(level, 0, 1, 60, 600) +
       (noise(k * r1, k * r2, t) * noisiness) / 2;
     //noise(k * r1, k * r2, t) * noisiness;
     //map(spectrum[theta], 0, 255, 200, 0);
@@ -150,4 +149,3 @@ function blob(size, xCenter, yCenter, k, t, noisiness) {
   }
   endShape();
 }
-
