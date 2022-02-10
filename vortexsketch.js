@@ -16,8 +16,7 @@ function setup() {
   for (let i = 0; i < num; i++) {
     particles.push(createVector(random(width), random(height)));
   }
-  //stroke(96, 225, 224);
-  stroke(227, 23, 10);
+  stroke(254, 0, 88);
 
   //riproduce il numero di audio equivalente alla variabile num
   for (let iA = 1; iA < num; iA++) {
@@ -30,8 +29,6 @@ function setup() {
 
 function draw() {
   background(0, 10);
-  //stroke(96, 225, 224);
-  stroke(227, 23, 10);
 
   flock();
 
@@ -41,10 +38,8 @@ function draw() {
   noStroke();
   fill(255);
   text(" //chaos tendency", windowWidth - windowWidth + 30, windowHeight - 50);
-}
 
-function mouseReleased() {
-  noiseSeed(millis());
+  stroke(254, 0, 88);
 }
 
 function onScreen(v) {
@@ -60,9 +55,10 @@ function flock() {
     let p = particles[i];
     point(p.x, p.y);
     let n = noise(p.x * noiseScale, p.y * noiseScale, frameCount * noiseScale);
+    strokeWeight(4);
     let a = TAU * n;
-    p.x += cos(a);
-    p.y += sin(a);
+    p.x += cos(a) * 3;
+    p.y += sin(a) * 3;
     if (!onScreen(p)) {
       p.x = random(width);
       p.y = random(height);

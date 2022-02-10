@@ -1,8 +1,8 @@
 let mic, recorder, soundFile;
 let state = 0;
 let listen;
-let stops = "stop";
-let record = "record";
+let stops;
+let record;
 let ok1 = false;
 
 let fft;
@@ -18,6 +18,7 @@ let counter;
 
 function setup() {
   let cnv = createCanvas(windowWidth, windowHeight);
+  cnv.mouseClicked(frecord);
 
   createCanvas(windowWidth, windowHeight);
   colorMode(HSB, 1);
@@ -50,9 +51,9 @@ function setup() {
 
   fft = new p5.FFT();
   fft.setInput(mic);
-}
 
-userStartAudio();
+  userStartAudio();
+}
 
 function draw() {
   background(0);
@@ -60,11 +61,10 @@ function draw() {
   if (state == 0) {
     textFont("Roboto mono");
     textAlign(CENTER);
-    record = createElement("h1", "record");
-    record.style("color", "#ffffff");
-    record.style("font-family", "Roboto mono");
-    record.style("font-size", "windowHeight");
-    record.position(windowWidth / 2, windowHeight / 1.05);
+    textSize(windowHeight / 35);
+    noStroke();
+    fill(255);
+    text("click to start recording", windowWidth / 2, windowHeight / 1.15);
   }
 
   if (state == 1) {
@@ -76,15 +76,25 @@ function draw() {
     noStroke();
     fill(255);
 
-    text(stops, windowWidth / 2, windowHeight / 1.05);
+    text("click to stop", windowWidth / 2, windowHeight / 1.15);
   }
 
   if (state == 2) {
     recorder.stop();
-    soundFile.play();
+    textFont("Roboto mono");
+    textAlign(CENTER);
+    textSize(windowHeight / 35);
+    noStroke();
+    fill(255);
+    text(
+      "click to listen to your inner chaos & submit",
+      windowWidth / 2,
+      windowHeight / 1.15
+    );
   }
 
   if (state == 3) {
+    soundFile.play();
     counter++;
     storeItem("counter", counter);
     save(soundFile, "mySound.wav");
@@ -98,7 +108,7 @@ function draw() {
     let size = radius + i * inter;
     let k = kMax * sqrt(i / n);
     let noisiness = maxNoise * (i / n);
-    blob(size, width / 2, height / 2, k, t - i * step, noisiness);
+    blob(size, width / 2, height / 2.3, k, t - i * step, noisiness);
   }
 
   textFont("Roboto mono");
@@ -106,21 +116,7 @@ function draw() {
   textSize(windowHeight / 35);
   noStroke();
   fill(255);
-  let sendg = text("//chaos tendency", windowWidth / 12, windowHeight / 15);
-
-  textFont("Roboto mono");
-  textAlign(LEFT);
-  textSize(windowHeight / 35);
-  noStroke();
-  fill(255);
-  let deletex = text("delete", windowHeight / 25, windowHeight / 1.05);
-
-  textFont("Roboto mono");
-  textAlign(CENTER);
-  textSize(windowHeight / 35);
-  noStroke();
-  fill(255);
-  let send = text("submit", windowWidth / 1.05, windowHeight / 1.05);
+  text("//chaos tendency", windowWidth / 12, windowHeight / 15);
 }
 
 function blob(size, xCenter, yCenter, k, t, noisiness) {
@@ -148,4 +144,8 @@ function blob(size, xCenter, yCenter, k, t, noisiness) {
     curveVertex(x, y);
   }
   endShape();
+}
+
+function frecord() {
+  state++;
 }
