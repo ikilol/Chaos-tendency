@@ -44,6 +44,10 @@ function setup() {
   recorder.setInput(mic);
 
   soundFile = new p5.SoundFile();
+  
+  //add amplitude
+  amplitude = new p5.Amplitude();
+
 
   fft = new p5.FFT();
   fft.setInput(mic);
@@ -121,17 +125,23 @@ function draw() {
 }
 
 function blob(size, xCenter, yCenter, k, t, noisiness) {
-  let spectrum = fft.analyze();
+  //let spectrum = fft.analyze();
+  let level = mic.getLevel();
   beginShape();
   let angleStep = 360 / 10;
   for (let theta = 0; theta <= 360 + 2 * angleStep; theta += angleStep) {
     let r1, r2;
     r1 = cos(theta) + 1;
     r2 = sin(theta) + 1; // +1 because it has to be positive for the function noise
+    /*let r =
+      size +
+      map(spectrum[theta], 0,255, 100, 0) +
+      (noise(k * r1, k * r2, t) * noisiness) / 3;
+*/
     let r =
       size +
-      map(spectrum[theta], 0, 255, 100, 0) +
-      (noise(k * r1, k * r2, t) * noisiness) / 3;
+      map(level, 0,1, 60, 700) +
+      (noise(k * r1, k * r2, t) * noisiness) / 2;
     //noise(k * r1, k * r2, t) * noisiness;
     //map(spectrum[theta], 0, 255, 200, 0);
     let x = xCenter + r * cos(theta);
@@ -140,3 +150,4 @@ function blob(size, xCenter, yCenter, k, t, noisiness) {
   }
   endShape();
 }
+
