@@ -48,7 +48,7 @@ async function firebaseSetup() {
   };
 
   //---DOWN---
-
+  //blabla
   onValue(audioRef, function (snapshot) {
     allAudio = snapshot.val();
   });
