@@ -20,10 +20,9 @@ function setup() {
 
   //riproduce il numero di audio equivalente alla variabile num
   for (let iA = 1; iA < num; iA++) {
-    ele = createAudio("../Audio/SoundChaos%20(" + iA + ").wav");
-    ele.volume(0.1);
+    ele = createAudio("../Audio/mySound%20(" + iA + ").wav");
+    ele.volume(1);
     ele.loop();
-    ele.autoplay(true);
   }
 }
 
