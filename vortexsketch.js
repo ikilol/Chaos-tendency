@@ -5,6 +5,14 @@ let arr = [];
 let num;
 const noiseScale = 0.01 / 2;
 
+function mouseClicked() {
+  for (let iA = 1; iA < num; iA++) {
+    ele = createAudio("../Audio/mySound%20(" + iA + ").wav");
+    ele.volume(0.1);
+    ele.loop();
+  }
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -16,18 +24,16 @@ function setup() {
   for (let i = 0; i < num; i++) {
     particles.push(createVector(random(width), random(height)));
   }
-  stroke(254, 0, 88);
+  //stroke(96, 225, 224);
+  stroke(227, 23, 10);
 
   //riproduce il numero di audio equivalente alla variabile num
-  for (let iA = 1; iA < num; iA++) {
-    ele = createAudio("../Audio/mySound%20(" + iA + ").wav");
-    ele.volume(1);
-    ele.loop();
-  }
 }
 
 function draw() {
   background(0, 10);
+  //stroke(96, 225, 224);
+  stroke(227, 23, 10);
 
   flock();
 
@@ -37,8 +43,10 @@ function draw() {
   noStroke();
   fill(255);
   text(" //chaos tendency", windowWidth - windowWidth + 30, windowHeight - 50);
+}
 
-  stroke(254, 0, 88);
+function mouseReleased() {
+  noiseSeed(millis());
 }
 
 function onScreen(v) {
@@ -54,13 +62,14 @@ function flock() {
     let p = particles[i];
     point(p.x, p.y);
     let n = noise(p.x * noiseScale, p.y * noiseScale, frameCount * noiseScale);
-    strokeWeight(4);
     let a = TAU * n;
-    p.x += cos(a) * 3;
-    p.y += sin(a) * 3;
+    p.x += cos(a);
+    p.y += sin(a);
     if (!onScreen(p)) {
       p.x = random(width);
       p.y = random(height);
     }
   }
 }
+
+function mouseClicked() {}
