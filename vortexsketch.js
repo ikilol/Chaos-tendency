@@ -37,14 +37,14 @@ function setup() {
   for (let i = 0; i < num; i++) {
     particles.push(createVector(random(width), random(height)));
   }
-  stroke(254, 0, 88);
+  //stroke(96, 225, 224);
+  stroke(227, 23, 10);
 
   //riproduce il numero di audio equivalente alla variabile num
   for (let iA = 1; iA < num; iA++) {
-    ele = createAudio("../Audio/SoundChaos%20(" + iA + ").wav");
+    ele = createAudio("../Audio/mySound%20(" + iA + ").wav");
     ele.volume(0.1);
     ele.loop();
-    ele.autoplay(true);
   }
 }
 
@@ -53,13 +53,17 @@ function draw() {
   image(logo, 40, 40);
   logo.resize(100, 100);
   background(0, 40);
+flock();
+  noStroke();
 
+  stroke(254, 0, 88);
 
 
   flock();
   noStroke();
 
-  stroke(254, 0, 88);
+function mouseReleased() {
+  noiseSeed(millis());
 }
 
 function onScreen(v) {
@@ -75,7 +79,6 @@ function flock() {
     let p = particles[i];
     point(p.x, p.y);
     let n = noise(p.x * noiseScale, p.y * noiseScale, frameCount * noiseScale);
-    strokeWeight(4);
     let a = TAU * n;
     p.x += cos(a) * 4;
     p.y += sin(a) * 4;
@@ -85,3 +88,5 @@ function flock() {
     }
   }
 }
+
+function mouseClicked() {}
