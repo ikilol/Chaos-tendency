@@ -42,10 +42,6 @@ function draw() {
   text(" //chaos tendency", windowWidth - windowWidth + 30, windowHeight - 50);
 }
 
-function mouseReleased() {
-  noiseSeed(millis());
-}
-
 function onScreen(v) {
   return v.x >= 0 && v.x <= width && v.y >= 0 && v.y <= height;
 }
