@@ -1,3 +1,21 @@
+/**
+ *! The Sound of Chaos !
+
+ * "The sound of Chaos" is a project developed by a group of Communication design students at Politecnico di Milano. 
+ * Inspired by the first book of Ovid’s Metamorphosis, 
+ * this project considers Chaos as the forgotten parent of reality and humans as its children.
+ *
+ *  DEVELOPED BY
+ *  Chiara Barberi, Luca Bottani, Federica Pasquini, Andrea Laura Sanguineti, Riccardo Ventura
+ *
+ *  FACULTY
+ *  Michele Mauri, Andrea Benedetti, Tommaso Elli
+ *
+ *  Creative Coding 2021/2022
+ *  Politecnico di Milano
+ */
+
+
 let p;
 let ele;
 let particles = [];
@@ -7,6 +25,9 @@ const noiseScale = 0.01 / 2;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  function preload() {
+    logo = loadImage('chaos_logo2.svg');
+  }
 
   //riprende il numero di file registrati nella cartella e li trasforma nella variabile num
   num = getItem("counter");
@@ -28,16 +49,15 @@ function setup() {
 }
 
 function draw() {
-  background(0, 10);
+
+  image(logo, 40, 40);
+  logo.resize(100, 100);
+  background(0, 40);
+
+
 
   flock();
-
-  textFont("Roboto mono");
-  textAlign(LEFT);
-  textSize(30);
   noStroke();
-  fill(255);
-  text(" //chaos tendency", windowWidth - windowWidth + 30, windowHeight - 50);
 
   stroke(254, 0, 88);
 }
@@ -57,8 +77,8 @@ function flock() {
     let n = noise(p.x * noiseScale, p.y * noiseScale, frameCount * noiseScale);
     strokeWeight(4);
     let a = TAU * n;
-    p.x += cos(a) * 3;
-    p.y += sin(a) * 3;
+    p.x += cos(a) * 4;
+    p.y += sin(a) * 4;
     if (!onScreen(p)) {
       p.x = random(width);
       p.y = random(height);
