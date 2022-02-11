@@ -3,7 +3,7 @@ body {
 }
 
 .title{
-    font-family: 'Quantico', sans-serif;
+    font-family: "Apfel Grotezk";
     font-weight: 100;
     font-size: 3vw;
     color:white;
@@ -14,7 +14,7 @@ body {
 .link1{
     position: relative;
     float: right;
-    font-family: 'Quantico', sans-serif;
+    font-family: "Apfel Grotezk";
     font-weight: 100;
     font-size: 1.5vw;
     color:#912f56;
@@ -29,7 +29,7 @@ body {
 .link2{
     position: relative;
     float: right;
-    font-family: 'Quantico', sans-serif;
+    font-family: "Apfel Grotezk";
     font-weight: 100;
     font-size: 1.5vw;
     color:white;
@@ -45,3 +45,40 @@ body {
     color:#912f56;
 
 }
+
+
+
+#top-right {
+    position: absolute;
+    width: 95%;
+    text-align: right;
+    align-items: right;
+    justify-content: right;
+    font-family: "Apfel Grotezk";
+    padding:0px;
+    margin: 40px;
+    font-size: 1em;
+    display: inline-block;
+    
+  }
+
+  #top div {
+    position: fixed;
+    display: inline-block;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  

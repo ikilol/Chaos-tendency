@@ -1,11 +1,29 @@
+/**
+ *! The Sound of Chaos !
+
+ * "The sound of Chaos" is a project developed by a group of Communication design students at Politecnico di Milano. 
+ * Inspired by the first book of Ovid’s Metamorphosis, 
+ * this project considers Chaos as the forgotten parent of reality and humans as its children.
+ *
+ *  DEVELOPED BY
+ *  Chiara Barberi, Luca Bottani, Federica Pasquini, Andrea Laura Sanguineti, Riccardo Ventura
+ *
+ *  FACULTY
+ *  Michele Mauri, Andrea Benedetti, Tommaso Elli
+ *
+ *  Creative Coding 2021/2022
+ *  Politecnico di Milano
+ */
+
 let mic, recorder, soundFile;
 let state = 0;
 let listen;
 let stops;
 let record;
 let ok1 = false;
-
+var x = 0;
 let fft;
+let about;
 
 let kMax; // maximal value for the parameter "k" of the blobs
 let step = 0.01; // difference in time between two consecutive blobs
@@ -16,8 +34,17 @@ let maxNoise = 700; // maximal value for the parameter "noisiness" for the blobs
 
 let counter;
 
+let logo;
+
+function preload() {
+  logo = loadImage('chaos_logo.svg');
+}
+
 function setup() {
   let cnv = createCanvas(windowWidth, windowHeight);
+  about = select("#top-right");
+
+  
   cnv.mouseClicked(frecord);
 
   createCanvas(windowWidth, windowHeight);
@@ -33,6 +60,7 @@ function setup() {
   if (counter === null) {
     counter = "";
   }
+
 
   console.log(counter);
 
@@ -57,9 +85,13 @@ function setup() {
 
 function draw() {
   background(0);
+  image(logo, 40, 40);
+  logo.resize(100, 100);
 
+
+  
   if (state == 0) {
-    textFont("Roboto mono");
+    textFont("Apfel Grotezk");
     textAlign(CENTER);
     textSize(windowHeight / 35);
     noStroke();
@@ -70,7 +102,7 @@ function draw() {
   if (state == 1) {
     recorder.record(soundFile);
 
-    textFont("Roboto mono");
+    textFont("Apfel Grotezk");
     textAlign(CENTER);
     textSize(windowHeight / 35);
     noStroke();
@@ -81,7 +113,7 @@ function draw() {
 
   if (state == 2) {
     recorder.stop();
-    textFont("Roboto mono");
+    textFont("Apfel Grotezk");
     textAlign(CENTER);
     textSize(windowHeight / 35);
     noStroke();
@@ -111,12 +143,11 @@ function draw() {
     blob(size, width / 2, height / 2.3, k, t - i * step, noisiness);
   }
 
-  textFont("Roboto mono");
+  textFont("Apfel Grotezk");
   textAlign(CENTER);
   textSize(windowHeight / 35);
   noStroke();
   fill(255);
-  text("//chaos tendency", windowWidth / 12, windowHeight / 15);
 }
 
 function blob(size, xCenter, yCenter, k, t, noisiness) {
