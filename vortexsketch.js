@@ -5,14 +5,6 @@ let arr = [];
 let num;
 const noiseScale = 0.01 / 2;
 
-function mouseClicked() {
-  for (let iA = 1; iA < num; iA++) {
-    ele = createAudio("../Audio/mySound%20(" + iA + ").wav");
-    ele.volume(0.1);
-    ele.loop();
-  }
-}
-
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -28,6 +20,11 @@ function setup() {
   stroke(227, 23, 10);
 
   //riproduce il numero di audio equivalente alla variabile num
+  for (let iA = 1; iA < num; iA++) {
+    ele = createAudio("../Audio/mySound%20(" + iA + ").wav");
+    ele.volume(0.1);
+    ele.loop();
+  }
 }
 
 function draw() {
