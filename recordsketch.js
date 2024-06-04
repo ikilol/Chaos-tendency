@@ -38,10 +38,11 @@ let logo;
 
 function preload() {
   logo = loadImage('chaos_logo.svg');
+  font = loadFont('CSS/ApfelGrotezk-Regular.woff'); // Carica il font
 }
-
 function setup() {
   let cnv = createCanvas(windowWidth, windowHeight);
+  textFont(font);
   about = select("#top-right");
 
   
@@ -91,7 +92,7 @@ function draw() {
 
   
   if (state == 0) {
-    textFont("Apfel Grotezk");
+    textFont(font);
     textAlign(CENTER);
     textSize(windowHeight / 35);
     noStroke();
@@ -102,7 +103,7 @@ function draw() {
   if (state == 1) {
     recorder.record(soundFile);
 
-    textFont("Apfel Grotezk");
+    textFont(font);
     textAlign(CENTER);
     textSize(windowHeight / 35);
     noStroke();
@@ -113,7 +114,7 @@ function draw() {
 
   if (state == 2) {
     recorder.stop();
-    textFont("Apfel Grotezk");
+    textFont(font);
     textAlign(CENTER);
     textSize(windowHeight / 35);
     noStroke();

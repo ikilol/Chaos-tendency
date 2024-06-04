@@ -1,9 +1,14 @@
+@font-face {
+  font-family: "ApfelGrotezk";
+  src: url('CSS/ApfelGrotezk-Regular.woff');
+}
+
 body {
     background-color:black;
 }
 
 .title{
-    font-family: "Apfel Grotezk";
+    font-family: "ApfelGrotezk";
     font-weight: 100;
     font-size: 3vw;
     color:white;
@@ -11,10 +16,19 @@ body {
     margin-top:1vw;
 }
 
+.about{
+  font-family: "ApfelGrotezk";
+  font-weight: 100;
+
+  color:white;
+  margin-left:1vw;
+  margin-top:1vw;
+}
+
 .link1{
     position: relative;
     float: right;
-    font-family: "Apfel Grotezk";
+    font-family: "ApfelGrotezk";
     font-weight: 100;
     font-size: 1.5vw;
     color:#912f56;
@@ -29,7 +43,7 @@ body {
 .link2{
     position: relative;
     float: right;
-    font-family: "Apfel Grotezk";
+    font-family: "ApfelGrotezk";
     font-weight: 100;
     font-size: 1.5vw;
     color:white;
@@ -54,7 +68,7 @@ body {
     text-align: right;
     align-items: right;
     justify-content: right;
-    font-family: "Apfel Grotezk";
+    font-family: "ApfelGrotezk";
     padding:0px;
     margin: 40px;
     font-size: 1em;

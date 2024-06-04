@@ -30,7 +30,7 @@
    }
  
    //riprende il numero di file registrati nella cartella e li trasforma nella variabile num
-   num = getItem("counter");
+   num = 500;
    arr.push(num);
    console.log(arr);
  
